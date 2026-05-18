@@ -123,7 +123,7 @@ export default function Portfolio() {
         <video
           ref={avatarVideoRef}
           className="avatar avatar-video avatar-video-desktop"
-          src="https://res.cloudinary.com/dwcnbqox0/video/upload/v1779145544/0519_fgd255.webm"
+          src="https://res.cloudinary.com/dwcnbqox0/video/upload/f_mp4/v1779145544/0519_fgd255.mp4"
           autoPlay
           muted
           defaultMuted
@@ -137,7 +137,7 @@ export default function Portfolio() {
 
         <img
           className="avatar avatar-gif-mobile"
-          src="https://res.cloudinary.com/dwcnbqox0/video/upload/f_gif/v1779145544/0519_fgd255.gif"
+          src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png"
           alt="Mykhailo Razumnyi avatar"
         />
 

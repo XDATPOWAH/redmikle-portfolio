@@ -98,7 +98,14 @@ export default function Portfolio() {
           <span className="last-name">Razumnyi</span>
         </div>
 
-        <img src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png" alt="Mykhailo Razumnyi avatar" className="avatar" />
+        <video
+          className="avatar avatar-video"
+          src="https://res.cloudinary.com/dwcnbqox0/video/upload/v1779145544/0519_fgd255.webm"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
 
         <p className="subtitle">Video editor / Post production /<br />Motion Design</p>
       </section>
@@ -319,7 +326,7 @@ export default function Portfolio() {
 
         .signature {
           position: relative;
-          z-index: 2;
+          z-index: 1;
           width: 100%;
           color: var(--neon);
           font-family: 'Rock Salt', cursive;
@@ -355,21 +362,27 @@ export default function Portfolio() {
         }
 
         .avatar {
+          display: block;
+        }
+
+        .avatar-video {
           position: relative;
-          z-index: 1;
+          z-index: 4;
           display: block;
           width: clamp(240px, 33vw, 470px);
           height: auto;
-          margin: clamp(-72px, -4vw, -12px) auto 0;
+          margin: clamp(-120px, -7vw, -42px) auto 0;
           filter: drop-shadow(0 8px 24px rgba(0,0,0,.34));
           transition: transform .5s cubic-bezier(.22,1,.36,1), filter .5s ease;
         }
-        .hero:hover .avatar {
+        .hero:hover .avatar-video {
           transform: translateY(-4px) scale(1.015);
           filter: drop-shadow(0 16px 32px rgba(0,0,0,.48));
         }
 
         .subtitle {
+          position: relative;
+          z-index: 2;
           margin: 22px 0 0;
           color: rgba(255,255,255,.78);
           font-size: clamp(17px, 2vw, 36px);
@@ -748,9 +761,11 @@ export default function Portfolio() {
             letter-spacing: -3px;
             margin-top: -10px;
           }
-          .avatar {
+          .avatar-video {
             width: 250px;
             margin-top: -18px;
+            background: transparent;
+            object-fit: contain;
           }
           .subtitle { font-size: 15px; }
 

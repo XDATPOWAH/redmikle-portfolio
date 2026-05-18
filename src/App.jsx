@@ -122,7 +122,7 @@ export default function Portfolio() {
 
         <video
           ref={avatarVideoRef}
-          className="avatar avatar-video"
+          className="avatar avatar-video avatar-video-desktop"
           src="https://res.cloudinary.com/dwcnbqox0/video/upload/v1779145544/0519_fgd255.webm"
           autoPlay
           muted
@@ -133,6 +133,12 @@ export default function Portfolio() {
           data-autoplay="true"
           onLoadedData={(event) => event.currentTarget.play().catch(() => {})}
           onCanPlay={(event) => event.currentTarget.play().catch(() => {})}
+        />
+
+        <img
+          className="avatar avatar-gif-mobile"
+          src="https://res.cloudinary.com/dwcnbqox0/video/upload/f_gif/v1779145544/0519_fgd255.gif"
+          alt="Mykhailo Razumnyi avatar"
         />
 
         <p className="subtitle">Video editor / Post production /<br />Motion Design</p>
@@ -397,7 +403,8 @@ export default function Portfolio() {
           display: block;
         }
 
-        .avatar-video {
+        .avatar-video,
+        .avatar-gif-mobile {
           position: relative;
           z-index: 4;
           display: block;
@@ -407,7 +414,12 @@ export default function Portfolio() {
           filter: drop-shadow(0 8px 24px rgba(0,0,0,.34));
           transition: transform .5s cubic-bezier(.22,1,.36,1), filter .5s ease;
         }
-        .hero:hover .avatar-video {
+
+        .avatar-gif-mobile {
+          display: none;
+        }
+        .hero:hover .avatar-video,
+        .hero:hover .avatar-gif-mobile {
           transform: translateY(-4px) scale(1.015);
           filter: drop-shadow(0 16px 32px rgba(0,0,0,.48));
         }
@@ -793,7 +805,12 @@ export default function Portfolio() {
             letter-spacing: -3px;
             margin-top: -10px;
           }
-          .avatar-video {
+          .avatar-video-desktop {
+            display: none;
+          }
+
+          .avatar-gif-mobile {
+            display: block;
             width: 250px;
             margin-top: -18px;
             background: transparent;

@@ -1,15 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Portfolio() {
   const [activeVideo, setActiveVideo] = useState(null)
+  const avatarVideoRef = useRef(null)
 
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === 'Escape') setActiveVideo(null)
     }
 
+    const forceAutoplay = () => {
+      const autoplayVideos = document.querySelectorAll('video[data-autoplay="true"]')
+
+      autoplayVideos.forEach((video) => {
+        video.muted = true
+        video.defaultMuted = true
+        video.playsInline = true
+
+        const playPromise = video.play()
+        if (playPromise?.catch) playPromise.catch(() => {})
+      })
+    }
+
+    forceAutoplay()
     window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
+    window.addEventListener('touchstart', forceAutoplay, { once: true })
+    window.addEventListener('scroll', forceAutoplay, { once: true })
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      window.removeEventListener('touchstart', forceAutoplay)
+      window.removeEventListener('scroll', forceAutoplay)
+    }
   }, [])
   const works = [
     {
@@ -99,12 +121,18 @@ export default function Portfolio() {
         </div>
 
         <video
+          ref={avatarVideoRef}
           className="avatar avatar-video"
           src="https://res.cloudinary.com/dwcnbqox0/video/upload/v1779145544/0519_fgd255.webm"
           autoPlay
           muted
+          defaultMuted
           loop
           playsInline
+          preload="auto"
+          data-autoplay="true"
+          onLoadedData={(event) => event.currentTarget.play().catch(() => {})}
+          onCanPlay={(event) => event.currentTarget.play().catch(() => {})}
         />
 
         <p className="subtitle">Video editor / Post production /<br />Motion Design</p>
@@ -169,9 +197,13 @@ export default function Portfolio() {
                 src={work.preview}
                 autoPlay
                 muted
+                defaultMuted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
+                data-autoplay="true"
+                onLoadedData={(event) => event.currentTarget.play().catch(() => {})}
+                onCanPlay={(event) => event.currentTarget.play().catch(() => {})}
               />
             )}
 

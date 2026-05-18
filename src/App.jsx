@@ -1,15 +1,48 @@
+import { useEffect, useState } from 'react'
+
 export default function Portfolio() {
+  const [activeVideo, setActiveVideo] = useState(null)
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setActiveVideo(null)
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
   const works = [
-    { className: 'tile tile-small', tone: 'light', name: 'Name001' },
-    { className: 'tile tile-wide', tone: 'mid', name: 'Name002' },
-    { className: 'tile tile-third', tone: 'dark', name: 'Name003' },
-    { className: 'tile tile-third', tone: 'mid', name: 'Name004' },
-    { className: 'tile tile-third', tone: 'white', name: 'Name005' },
-    { className: 'tile tile-half', tone: 'mid', name: 'Name006' },
-    { className: 'tile tile-half', tone: 'dark', name: 'Name007' },
-    { className: 'tile tile-third tall', tone: 'white', name: 'Name008' },
-    { className: 'tile tile-third tall', tone: 'dark', name: 'Name009' },
-    { className: 'tile tile-third tall', tone: 'dark2', name: 'Name010' },
+    {
+      className: 'tile video-tile',
+      tone: 'light',
+      name: 'Pantene cream promo',
+      description: 'Pantene Cream is a nourishing hair treatment that helps hydrate, smooth frizz, and leave hair softer, shinier, and easier to manage.',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099322/02_Foap_Pantene_Excitement_Greasiness_Tellme_Berenice_02_ccqv4e.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099322/02_Foap_Pantene_Excitement_Greasiness_Tellme_Berenice_02_ccqv4e.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'Travel video',
+      description: 'Travel video with various visual effects',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101226/TURKEY_FINALE_vd1slh.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101226/TURKEY_FINALE_vd1slh.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark',
+      name: 'Personal Stylist app promo',
+      description: 'AI-powered fashion styling app that helps users discover their personal style through outfit recommendations, color analysis, and guidance from professional stylists.',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100157/2025-11-30_MYR_Video_WhatReallyHelpedMeStopFeelingLikeNothingFitsMeRight-WG-TryNow_ProblemSolution_AIFitCheck_recDNibQIfwxQVTjw_en_reelorg_ndxfi6.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100157/2025-11-30_MYR_Video_WhatReallyHelpedMeStopFeelingLikeNothingFitsMeRight-WG-TryNow_ProblemSolution_AIFitCheck_recDNibQIfwxQVTjw_en_reelorg_ndxfi6.mp4',
+    },
+    { className: 'tile tile-third', tone: 'mid', name: 'Name004', description: 'Project description will be added later.' },
+    { className: 'tile tile-third', tone: 'white', name: 'Name005', description: 'Project description will be added later.' },
+    { className: 'tile tile-half', tone: 'mid', name: 'Name006', description: 'Project description will be added later.' },
+    { className: 'tile tile-half', tone: 'dark', name: 'Name007', description: 'Project description will be added later.' },
+    { className: 'tile tile-third tall', tone: 'white', name: 'Name008', description: 'Project description will be added later.' },
+    { className: 'tile tile-third tall', tone: 'dark', name: 'Name009', description: 'Project description will be added later.' },
+    { className: 'tile tile-third tall', tone: 'dark2', name: 'Name010', description: 'Project description will be added later.' },
   ]
 
   const exp = [
@@ -46,17 +79,6 @@ export default function Portfolio() {
         'Liaised with creative directors and social media teams to align video output with campaign goals',
       ],
     },
-    {
-      title: 'Video Editor',
-      company: 'Surreal Digital',
-      years: '2021 — 2022',
-      points: [
-        'Created short-form video content for TikTok and Instagram Reels, aligned to brand voice and tone',
-        'Optimised exports for platform requirements — aspect ratios, caption styles, bitrate and video length',
-        'Collaborated with PMs and creative strategists to build out monthly content calendars',
-        'Edited promotional and commercial content from raw brief through final client approval',
-      ],
-    },
   ]
 
   return (
@@ -84,7 +106,9 @@ export default function Portfolio() {
       <section id="about" className="bio-exp">
         <article className="about reveal delay-1">
           <img className="paperclip-img" src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050984/Group_37_epwbda.png" alt="pin" />
-          <div className="photo-placeholder"></div>
+          <div className="photo-placeholder">
+            <img src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779142149/PHOTO_DONE_oiojbq.jpg" alt="Mykhailo Razumnyi" />
+          </div>
 
           <h1>Mykhailo Razumnyi</h1>
 
@@ -131,11 +155,30 @@ export default function Portfolio() {
 
       <section id="portfolio" className="portfolio-grid reveal delay-3">
         {works.map((work, index) => (
-          <article key={index} className={`${work.className} ${work.tone}`} tabIndex="0">
+          <article key={index} className={`${work.className} ${work.tone} ${work.preview ? 'has-video' : ''}`} tabIndex="0">
+            {work.preview && (
+              <video
+                className="project-preview"
+                src={work.preview}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            )}
+
             <div className="project-hover">
-              <div className="hover-name">{work.name}</div>
-              <div className="hover-date">01/01/2026</div>
-              <div className="hover-pill">motion design</div>
+              <div className="hover-copy">
+                <div className="hover-name">{work.name}</div>
+                <p>{work.description}</p>
+              </div>
+
+              {work.fullVideo && (
+                <button className="watch-button" onClick={() => setActiveVideo(work)}>
+                  Watch full
+                </button>
+              )}
             </div>
           </article>
         ))}
@@ -146,7 +189,6 @@ export default function Portfolio() {
           <span>Get in touch</span>
           <a href="#">LinkedIn</a>
           <a href="#">Instagram</a>
-          <a href="#">YouTube</a>
         </div>
 
         <div className="footer-right">
@@ -158,6 +200,15 @@ export default function Portfolio() {
           <button>Send me a message</button>
         </div>
       </footer>
+
+      {activeVideo && (
+        <div className="video-modal" role="dialog" aria-modal="true" onClick={() => setActiveVideo(null)}>
+          <button className="modal-close" onClick={() => setActiveVideo(null)} aria-label="Close video">×</button>
+          <div className="modal-video-wrap" onClick={(event) => event.stopPropagation()}>
+            <video src={activeVideo.fullVideo} controls autoPlay playsInline className="modal-video" />
+          </div>
+        </div>
+      )}
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
@@ -340,12 +391,19 @@ export default function Portfolio() {
 
         .photo-placeholder {
           width: clamp(126px, 18vw, 270px);
-          height: clamp(136px, 19vw, 290px);
+          aspect-ratio: 1 / 1.08;
           background: #d7d7d7;
           border-radius: clamp(12px, 1.8vw, 28px);
           transform: rotate(-2deg);
           margin-bottom: 28px;
+          overflow: hidden;
           transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease;
+        }
+        .photo-placeholder img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
         .about:hover .photo-placeholder {
           transform: rotate(-1deg) translateY(-3px);
@@ -480,6 +538,7 @@ export default function Portfolio() {
           box-shadow: 0 18px 42px rgba(0,0,0,.28);
         }
 
+        .video-tile { grid-column: span 2; aspect-ratio: 9 / 16; height: auto; min-height: 0; }
         .tile-small { grid-column: span 2; height: clamp(180px, 20vw, 360px); }
         .tile-wide { grid-column: span 4; height: clamp(180px, 20vw, 360px); }
         .tile-third { grid-column: span 2; height: clamp(180px, 20vw, 360px); }
@@ -492,12 +551,35 @@ export default function Portfolio() {
         .dark2 { background: #9d9d9c; }
         .white { background: #fbfbfb; }
 
+        .project-preview {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .has-video::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+          background: rgba(0,0,0,0);
+          transition: background .35s ease;
+        }
+        .has-video:hover::after,
+        .has-video:focus-within::after { background: rgba(0,0,0,.46); }
+
         .project-hover {
           position: absolute;
           inset: 0;
           z-index: 3;
           padding: clamp(18px, 2.2vw, 42px) clamp(18px, 2.6vw, 48px);
-          display: block;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
           opacity: 0;
           transform: translateY(8px);
           transition: opacity .38s ease, transform .38s cubic-bezier(.22,1,.36,1);
@@ -510,41 +592,84 @@ export default function Portfolio() {
           transform: translateY(0);
         }
 
+        .hover-copy {
+          max-width: min(84%, 430px);
+        }
         .hover-name {
-          max-width: 58%;
-          font-size: clamp(22px, 2.7vw, 44px);
+          font-size: clamp(20px, 2.25vw, 38px);
           line-height: .95;
           font-weight: 900;
-          letter-spacing: -.05em;
+          letter-spacing: -.045em;
           color: var(--neon);
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
         }
-        .hover-date {
-          margin-top: clamp(8px, .9vw, 16px);
-          font-size: clamp(14px, 1.45vw, 24px);
-          line-height: 1;
+        .hover-copy p {
+          margin: 10px 0 0;
+          max-width: 360px;
+          color: rgba(255,255,255,.88);
+          font-size: clamp(11px, .95vw, 15px);
+          line-height: 1.18;
           font-weight: 400;
-          color: var(--neon);
         }
-        .hover-pill {
-          position: absolute;
-          top: clamp(18px, 2.2vw, 42px);
-          right: clamp(18px, 2.6vw, 48px);
-          max-width: 38%;
+        .watch-button {
+          border: 0;
           border-radius: 999px;
           background: var(--neon);
           color: #161616;
-          padding: clamp(6px, .55vw, 10px) clamp(14px, 1.8vw, 28px);
-          font-size: clamp(9px, .82vw, 15px);
+          padding: 10px 20px;
+          font-size: clamp(11px, .95vw, 15px);
           line-height: 1;
-          font-weight: 700;
+          font-weight: 800;
           text-transform: uppercase;
-          white-space: nowrap;
+          transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .watch-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(0,0,0,.28);
+        }
+
+        .video-modal {
+          position: fixed;
+          inset: 0;
+          z-index: 100;
+          display: grid;
+          place-items: center;
+          padding: 24px;
+          background: rgba(0,0,0,.78);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+        }
+        .modal-video-wrap {
+          width: min(92vw, 520px);
+          aspect-ratio: 9 / 16;
+          max-height: 88vh;
+          border-radius: 22px;
           overflow: hidden;
-          text-overflow: ellipsis;
-          text-align: center;
+          background: #000;
+          box-shadow: 0 25px 80px rgba(0,0,0,.52);
+        }
+        .modal-video {
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-height: 88vh;
+          object-fit: contain;
+          background: #000;
+        }
+        .modal-close {
+          position: fixed;
+          top: 22px;
+          right: 24px;
+          z-index: 101;
+          width: 44px;
+          height: 44px;
+          border: 0;
+          border-radius: 50%;
+          background: rgba(255,255,255,.14);
+          color: white;
+          font-size: 32px;
+          line-height: 1;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
         }
 
         .footer {
@@ -646,7 +771,7 @@ export default function Portfolio() {
             left: 18px;
             top: -8px;
           }
-          .photo-placeholder { margin-bottom: 24px; width: 126px; height: 136px; border-radius: 12px; }
+          .photo-placeholder { margin-bottom: 24px; width: 126px; height: auto; aspect-ratio: 1 / 1.08; border-radius: 12px; }
           .about h1 { font-size: 25px; align-self: auto; }
           .about p { font-size: 11px; max-width: 420px; }
 
@@ -671,11 +796,15 @@ export default function Portfolio() {
           .tile-third,
           .tile-half,
           .tile-third.tall { grid-column: span 1; height: 180px; }
+          .video-tile { grid-column: span 1; aspect-ratio: 9 / 16; height: auto; }
           .tile-wide, .tile-half { grid-column: span 1; height: 180px; }
           .project-hover { padding: 18px; }
-          .hover-name { max-width: 56%; font-size: 26px; }
-          .hover-date { font-size: 16px; margin-top: 8px; }
-          .hover-pill { top: 18px; right: 18px; max-width: 40%; font-size: 9px; padding: 7px 13px; }
+          .hover-copy { max-width: 92%; }
+          .hover-name { font-size: 24px; }
+          .hover-copy p { font-size: 11px; max-width: 260px; }
+          .watch-button { font-size: 10px; padding: 9px 15px; }
+          .modal-video-wrap { width: min(94vw, 520px); border-radius: 18px; }
+          .modal-close { top: 14px; right: 14px; }
 
           .footer {
             margin-top: 34px;

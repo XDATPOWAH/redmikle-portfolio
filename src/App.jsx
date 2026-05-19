@@ -34,9 +34,118 @@ export default function Portfolio() {
     }
   }, [])
   const works = [
+    // Row 1 — 3 vertical videos
+    {
+      className: 'tile video-tile featured-video',
+      tone: 'dark',
+      name: 'Motion animation',
+      description: 'Apple inspired motion animation for Playboi Carti song',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779214955/WAKEUP_sssw4u.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779214955/WAKEUP_sssw4u.mp4',
+    },
+    {
+      className: 'tile video-tile featured-video',
+      tone: 'dark2',
+      name: 'Collage',
+      description: 'Abstract motion collage inspired by Asap Rocky',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099598/COLLAGE_yac8br.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099598/COLLAGE_yac8br.mp4',
+    },
+    {
+      className: 'tile video-tile featured-video',
+      tone: 'mid',
+      name: 'Travel video',
+      description: 'Travel video with various visual effects',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101226/TURKEY_FINALE_vd1slh.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101226/TURKEY_FINALE_vd1slh.mp4',
+    },
+
+    // Row 2 — horizontal video
+    {
+      className: 'tile video-tile video-wide featured-video',
+      tone: 'dark',
+      name: 'UI Animation',
+      description: 'Web app UI animation',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099867/AI_DETECTOR_fixed_wtzdbi.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099867/AI_DETECTOR_fixed_wtzdbi.mp4',
+    },
+
+    // Row 3 — 3 vertical videos
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'Abstract',
+      description: 'Space abstract visuals',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101080/GO_new_jz20cn.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101080/GO_new_jz20cn.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark',
+      name: 'Collage',
+      description: 'Animated collage',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101015/DAMN_gcmswd.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101015/DAMN_gcmswd.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark2',
+      name: 'Fast cut edit',
+      description: 'Web app promo, UI animation',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100176/MEET_SP_2_VERTICAL_mixs7g.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100176/MEET_SP_2_VERTICAL_mixs7g.mp4',
+    },
+
+    // Row 4 — horizontal video
+    {
+      className: 'tile video-tile video-wide',
+      tone: 'mid',
+      name: 'AI actor',
+      description: 'Performance marketing with the main AI actor',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102961/scrip_2_kyna1j.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102961/scrip_2_kyna1j.mp4',
+    },
+
+    // Row 5 — 3 vertical videos
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'Personal Stylist app promo',
+      description: 'AI-powered fashion styling app that helps users discover their personal style through outfit recommendations, color analysis, and guidance from professional stylists.',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779185173/2025-11-27_MYR_Video_IM50AndThisIsWhyIStartedDressingBasedOnMyArchetype-WG-JustTakeThisQuizAndDiscoverYourArchetype_ProblemSolution_OldScriptNewFormat_rec1D2CSer4tiRqJ1_en_reelorg_han9xe.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779185173/2025-11-27_MYR_Video_IM50AndThisIsWhyIStartedDressingBasedOnMyArchetype-WG-JustTakeThisQuizAndDiscoverYourArchetype_ProblemSolution_OldScriptNewFormat_rec1D2CSer4tiRqJ1_en_reelorg_han9xe.mp4',
+    },
     {
       className: 'tile video-tile',
       tone: 'light',
+      name: 'Personal Stylist app promo',
+      description: 'AI-powered fashion styling app that helps users discover their personal style through outfit recommendations, color analysis, and guidance from professional stylists.',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100157/2025-11-30_MYR_Video_WhatReallyHelpedMeStopFeelingLikeNothingFitsMeRight-WG-TryNow_ProblemSolution_AIFitCheck_recDNibQIfwxQVTjw_en_reelorg_ndxfi6.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100157/2025-11-30_MYR_Video_WhatReallyHelpedMeStopFeelingLikeNothingFitsMeRight-WG-TryNow_ProblemSolution_AIFitCheck_recDNibQIfwxQVTjw_en_reelorg_ndxfi6.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark',
+      name: 'Student App',
+      description: 'Marketing promo for app that helps students with their homework',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779214865/StudyPro_mfstkx.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779214865/StudyPro_mfstkx.mp4',
+    },
+
+    // Row 6 — horizontal video
+    {
+      className: 'tile video-tile video-wide',
+      tone: 'light',
+      name: 'AI actor',
+      description: 'Performance marketing with the main AI actor',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103047/script14_michael_jiya4m.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103047/script14_michael_jiya4m.mp4',
+    },
+
+    // Remaining rows — vertical videos grouped by 3
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
       name: 'Pantene cream promo',
       description: 'Pantene Cream is a nourishing hair treatment that helps hydrate, smooth frizz, and leave hair softer, shinier, and easier to manage.',
       preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099322/02_Foap_Pantene_Excitement_Greasiness_Tellme_Berenice_02_ccqv4e.mp4',
@@ -44,27 +153,116 @@ export default function Portfolio() {
     },
     {
       className: 'tile video-tile',
+      tone: 'dark2',
+      name: 'Pantene cream promo',
+      description: 'Pantene Cream is a nourishing hair treatment that helps hydrate, smooth frizz, and leave hair softer, shinier, and easier to manage.',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100123/07_Foap_Pantene_Excitement_Usage_Regimen_Splitscreen_Victoria_a3t8yk.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100123/07_Foap_Pantene_Excitement_Usage_Regimen_Splitscreen_Victoria_a3t8yk.mp4',
+    },
+    {
+      className: 'tile video-tile',
       tone: 'mid',
-      name: 'Travel video',
-      description: 'Travel video with various visual effects',
-      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101226/TURKEY_FINALE_vd1slh.mp4',
-      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101226/TURKEY_FINALE_vd1slh.mp4',
+      name: 'Home Improvement',
+      description: 'Performance marketing video for Home Improvement offer',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099013/B1_46_1_s1ndnh.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099013/B1_46_1_s1ndnh.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark2',
+      name: 'Home Improvement',
+      description: 'Performance marketing video for Home Improvement offer',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100686/BATHROOM_1_kucn9t.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100686/BATHROOM_1_kucn9t.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'light',
+      name: 'eCommerce',
+      description: 'ReliveX product promo',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100270/back_pain_kx12n8.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100270/back_pain_kx12n8.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'eCommerce',
+      description: 'Knife promo',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102147/3_mjas06.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102147/3_mjas06.mp4',
     },
     {
       className: 'tile video-tile',
       tone: 'dark',
-      name: 'Personal Stylist app promo',
-      description: 'AI-powered fashion styling app that helps users discover their personal style through outfit recommendations, color analysis, and guidance from professional stylists.',
-      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100157/2025-11-30_MYR_Video_WhatReallyHelpedMeStopFeelingLikeNothingFitsMeRight-WG-TryNow_ProblemSolution_AIFitCheck_recDNibQIfwxQVTjw_en_reelorg_ndxfi6.mp4',
-      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100157/2025-11-30_MYR_Video_WhatReallyHelpedMeStopFeelingLikeNothingFitsMeRight-WG-TryNow_ProblemSolution_AIFitCheck_recDNibQIfwxQVTjw_en_reelorg_ndxfi6.mp4',
+      name: 'eCommerce',
+      description: 'Windshield product promo',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102325/1_llxpi4.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102325/1_llxpi4.mp4',
     },
-    { className: 'tile tile-third', tone: 'mid', name: 'Name004', description: 'Project description will be added later.' },
-    { className: 'tile tile-third', tone: 'white', name: 'Name005', description: 'Project description will be added later.' },
-    { className: 'tile tile-half', tone: 'mid', name: 'Name006', description: 'Project description will be added later.' },
-    { className: 'tile tile-half', tone: 'dark', name: 'Name007', description: 'Project description will be added later.' },
-    { className: 'tile tile-third tall', tone: 'white', name: 'Name008', description: 'Project description will be added later.' },
-    { className: 'tile tile-third tall', tone: 'dark', name: 'Name009', description: 'Project description will be added later.' },
-    { className: 'tile tile-third tall', tone: 'dark2', name: 'Name010', description: 'Project description will be added later.' },
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'Loans',
+      description: 'Performance marketing video for Loans offer',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101557/video_1_csicxq.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101557/video_1_csicxq.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark2',
+      name: 'Loans',
+      description: 'Performance marketing video for Loans offer',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101696/spy_00008_mot_055_v03_3D_carousel_TT_ielezr.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779101696/spy_00008_mot_055_v03_3D_carousel_TT_ielezr.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'light',
+      name: 'Car insurance',
+      description: 'Performance marketing video for car insurance offer',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102788/car_insurance_v1_1080p_gbe9pl.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102788/car_insurance_v1_1080p_gbe9pl.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark',
+      name: 'Casino',
+      description: 'Promotional video',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100702/s_1272188374798776_videos_0_rhcqdc.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100702/s_1272188374798776_videos_0_rhcqdc.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'Casino',
+      description: 'Promotional video',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100714/s_3120397821681675_videos_0_hkfaah.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779100714/s_3120397821681675_videos_0_hkfaah.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'dark2',
+      name: 'Dating',
+      description: '18+ web dating app promo',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103137/APP_promo_2_qkvdna.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103137/APP_promo_2_qkvdna.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'Dating',
+      description: '18+ web dating app promo',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103304/talk_with_man_vertical_2_f5vpcr.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103304/talk_with_man_vertical_2_f5vpcr.mp4',
+    },
+    {
+      className: 'tile video-tile',
+      tone: 'mid',
+      name: 'AI actor',
+      description: 'Dating app promo, with the AI actor',
+      preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103527/DATE_w4r53o.mp4',
+      fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779103527/DATE_w4r53o.mp4',
+    },
   ]
 
   const exp = [
@@ -106,7 +304,12 @@ export default function Portfolio() {
   return (
     <main className="site-shell">
       <nav className="glass-nav">
-        <a href="#hero" className="nav-logo">MR</a>
+        <a href="#hero" className="nav-logo">
+          <img
+            src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png"
+            alt="MR avatar"
+          />
+        </a>
         <div className="nav-links">
           <a href="#about">About me</a>
           <a href="#portfolio">Portfolio</a>
@@ -123,7 +326,7 @@ export default function Portfolio() {
         <video
           ref={avatarVideoRef}
           className="avatar avatar-video avatar-video-desktop"
-          src="https://res.cloudinary.com/dwcnbqox0/video/upload/f_mp4/v1779145544/0519_fgd255.mp4"
+          src="https://res.cloudinary.com/dwcnbqox0/video/upload/v1779145544/0519_fgd255.webm"
           autoPlay
           muted
           defaultMuted
@@ -141,7 +344,7 @@ export default function Portfolio() {
           alt="Mykhailo Razumnyi avatar"
         />
 
-        <p className="subtitle">Video editor / Post production /<br />Motion Design</p>
+        <p className="subtitle">Video editing / Post production /<br />Motion Design</p>
       </section>
 
       <section id="about" className="bio-exp">
@@ -154,7 +357,7 @@ export default function Portfolio() {
           <h1>Mykhailo Razumnyi</h1>
 
           <p>
-            I got into video editing the way most people do — obsessively, for free,
+            I got into video creation the way most people do — obsessively, for free,
             for strangers on the internet. Travel vlogs, lifestyle content, hunting films,
             product promos — I edited anything I could get my hands on, learning the craft
             frame by frame. Four years and several studios later, I now specialise in motion
@@ -173,6 +376,12 @@ export default function Portfolio() {
             Based in Warsaw. Always looking for projects where the brief is ambitious and
             the timeline is tight.
           </p>
+
+          <img
+            className="about-illustration"
+            src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779230823/Gemini_Generated_Image_ikouq1ikouq1ikou_1_b7fcz8.png"
+            alt="3D motion design illustration"
+          />
         </article>
 
         <aside className="experience reveal delay-2">
@@ -196,7 +405,18 @@ export default function Portfolio() {
 
       <section id="portfolio" className="portfolio-grid reveal delay-3">
         {works.map((work, index) => (
-          <article key={index} className={`${work.className} ${work.tone} ${work.preview ? 'has-video' : ''}`} tabIndex="0">
+          <article
+            key={index}
+            className={`${work.className} ${work.tone} ${work.preview ? 'has-video' : ''}`}
+            tabIndex="0"
+            onClick={() => work.fullVideo && setActiveVideo(work)}
+            onKeyDown={(event) => {
+              if ((event.key === 'Enter' || event.key === ' ') && work.fullVideo) {
+                event.preventDefault()
+                setActiveVideo(work)
+              }
+            }}
+          >
             {work.preview && (
               <video
                 className="project-preview"
@@ -220,7 +440,13 @@ export default function Portfolio() {
               </div>
 
               {work.fullVideo && (
-                <button className="watch-button" onClick={() => setActiveVideo(work)}>
+                <button
+                  className="watch-button"
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    setActiveVideo(work)
+                  }}
+                >
                   Watch full
                 </button>
               )}
@@ -230,19 +456,24 @@ export default function Portfolio() {
       </section>
 
       <footer id="contact" className="footer reveal delay-4">
+        <div className="footer-illustration-badge">
+          <img
+            className="footer-illustration"
+            src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779230807/Gemini_Generated_Image_6hz3ge6hz3ge6hz3_1_2_kri5rg.png"
+            alt="3D avatar illustration"
+          />
+        </div>
         <div className="footer-left">
           <span>Get in touch</span>
-          <a href="#">LinkedIn</a>
-          <a href="#">Instagram</a>
+          <a href="https://www.linkedin.com/in/redmikle/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://t.me/redmikle" target="_blank" rel="noreferrer">Telegram</a>
         </div>
 
         <div className="footer-right">
           <p>
-            If you have an idea or a project you’d like to work on, feel free to reach out to
-            me by email. I’m always open to new opportunities and I’d be happy to discuss.
-            Let’s create something great!
+            If you have an idea, a bold campaign, or a project that needs <strong>high-performing visuals</strong>, motion design, or creative direction — let’s talk. I create content that is built to <strong>grab attention</strong>, drive engagement, and make brands impossible to ignore.
           </p>
-          <button>Send me a message</button>
+          <a className="footer-button" href="mailto:mikler49@gmail.com">Send me a message</a>
         </div>
       </footer>
 
@@ -273,6 +504,7 @@ export default function Portfolio() {
         a, button { cursor: pointer; }
 
         .site-shell {
+          position: relative;
           width: 100%;
           min-height: 100vh;
           overflow-x: hidden;
@@ -283,9 +515,12 @@ export default function Portfolio() {
           scroll-padding-top: 96px;
         }
 
+        
+
         .glass-nav {
           position: fixed;
-          z-index: 50;
+          isolation: isolate;
+          z-index: 200;
           top: 18px;
           left: 50%;
           transform: translateX(-50%);
@@ -308,14 +543,19 @@ export default function Portfolio() {
           height: 38px;
           display: grid;
           place-items: center;
-          color: #111;
-          background: var(--neon);
+          background: #ff542c;
           border-radius: 50%;
-          font-size: 13px;
-          font-weight: 900;
-          letter-spacing: -.08em;
+          overflow: hidden;
           text-decoration: none;
           transition: transform .25s ease;
+          box-shadow: 0 4px 14px rgba(0,0,0,.22);
+        }
+
+        .nav-logo img {
+          width: 78%;
+          height: 78%;
+          object-fit: cover;
+          display: block;
         }
         .nav-logo:hover { transform: scale(1.06); }
 
@@ -360,6 +600,7 @@ export default function Portfolio() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          transform: translateY(-18vh);
         }
 
         .signature {
@@ -435,16 +676,31 @@ export default function Portfolio() {
         }
 
         .bio-exp {
+          position: relative;
           width: min(90vw, 1100px);
           max-width: none;
-          margin: 0 auto;
+          margin: 90px auto 0;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: clamp(28px, 5vw, 70px);
+          gap: clamp(42px, 6vw, 96px);
           align-items: start;
         }
 
-        .about { position: relative; padding-top: 13px; }
+        .about {
+          position: relative;
+          padding-top: 13px;
+          z-index: 3;
+        }
+
+        .about-illustration {
+          display: block;
+          width: min(112%, 620px);
+          margin: 64px 0 0 -18px;
+          transform: rotate(-4deg);
+          filter: drop-shadow(0 28px 55px rgba(0,0,0,.34));
+          pointer-events: none;
+          user-select: none;
+        }
 
         .photo-placeholder {
           width: clamp(126px, 18vw, 270px);
@@ -488,15 +744,17 @@ export default function Portfolio() {
         }
 
         .about p {
-          margin: 0 0 26px;
-          max-width: 520px;
-          font-size: clamp(16px, 1.45vw, 24px);
-          line-height: 1.18;
+          margin: 0 0 30px;
+          max-width: 540px;
+          font-size: clamp(18px, 1.55vw, 26px);
+          line-height: 1.32;
           color: rgba(255,255,255,.82);
           font-weight: 300;
         }
 
         .experience {
+          position: relative;
+          z-index: 2;
           background: var(--olive);
           border: 1px solid var(--olive-border);
           border-radius: clamp(18px, 2vw, 32px);
@@ -572,12 +830,13 @@ export default function Portfolio() {
         }
 
         .portfolio-grid {
-          width: min(90vw, 1100px);
+          width: min(90vw, 1180px);
           max-width: none;
-          margin: 86px auto 0;
+          margin: 120px auto 0;
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          gap: clamp(10px, 1.2vw, 18px);
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: clamp(12px, 1.25vw, 20px);
+          align-items: start;
         }
 
         .tile {
@@ -595,7 +854,25 @@ export default function Portfolio() {
           box-shadow: 0 18px 42px rgba(0,0,0,.28);
         }
 
-        .video-tile { grid-column: span 2; aspect-ratio: 9 / 16; height: auto; min-height: 0; }
+        .video-tile {
+          grid-column: span 1;
+          aspect-ratio: 9 / 16;
+          height: auto;
+          min-height: 0;
+          background: #1a1a1a;
+        }
+        .video-wide {
+          grid-column: span 3;
+          aspect-ratio: 16 / 9;
+          width: 100%;
+        }
+        .video-wide:first-child {
+          grid-column: span 3;
+          aspect-ratio: 16 / 9;
+        }
+        .featured-video {
+          box-shadow: 0 0 0 1px rgba(215,255,0,.18), 0 18px 50px rgba(0,0,0,.22);
+        }
         .tile-small { grid-column: span 2; height: clamp(180px, 20vw, 360px); }
         .tile-wide { grid-column: span 4; height: clamp(180px, 20vw, 360px); }
         .tile-third { grid-column: span 2; height: clamp(180px, 20vw, 360px); }
@@ -730,25 +1007,57 @@ export default function Portfolio() {
         }
 
         .footer {
+          position: relative;
+          overflow: visible;
           width: min(90vw, 1100px);
           max-width: none;
-          margin: 34px auto 0;
-          min-height: 122px;
+          margin: 110px auto 0;
+          min-height: 220px;
           background: var(--orange);
           color: #070707;
           border-radius: 24px;
           display: grid;
           grid-template-columns: 1fr 1fr;
           align-items: end;
-          padding: 24px 34px 24px;
+          padding: 42px 42px 38px;
           gap: 26px;
         }
 
-        .footer-left span { display: block; font-size: 12px; margin-bottom: 18px; }
+        .footer-illustration-badge {
+          position: absolute;
+          width: clamp(82px, 8vw, 112px);
+          aspect-ratio: 1 / 1;
+          left: 34px;
+          top: -48px;
+          z-index: 3;
+          border-radius: 50%;
+          background: var(--orange);
+          display: grid;
+          place-items: center;
+          pointer-events: none;
+          user-select: none;
+        }
+
+        .footer-illustration {
+          width: 88%;
+          height: 88%;
+          object-fit: contain;
+          display: block;
+        }
+
+        .footer-left span {
+          display: block;
+          font-size: 15px;
+          margin-bottom: 22px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .08em;
+          opacity: .72;
+        }
         .footer-left a {
           display: block;
           width: fit-content;
-          font-size: clamp(26px, 2.4vw, 40px);
+          font-size: clamp(34px, 3vw, 56px);
           line-height: 1.25;
           font-weight: 800;
           color: #0b0b0b;
@@ -764,14 +1073,20 @@ export default function Portfolio() {
           text-align: right;
         }
         .footer-right p {
-          max-width: 420px;
+          max-width: 620px;
           margin: 0 0 18px;
-          font-size: clamp(12px, 1vw, 16px);
-          line-height: 1.18;
+          font-size: clamp(14px, 1vw, 18px);
+          line-height: 1.45;
+          font-weight: 500;
           text-align: right;
           color: #111;
         }
-        .footer button {
+        .footer-button {
+          margin-bottom: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
           border: 0;
           background: #171717;
           color: white;
@@ -779,22 +1094,62 @@ export default function Portfolio() {
           padding: 12px 42px;
           font-size: 14px;
           font-weight: 800;
+          text-decoration: none;
           transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
         }
-        .footer button:hover {
+        .footer-button:hover {
           transform: translateY(-2px) scale(1.02);
           background: #050505;
           box-shadow: 0 10px 24px rgba(0,0,0,.22);
         }
 
+        @media (max-width: 1024px) {
+          .portfolio-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
+          .video-wide,
+          .video-wide:first-child {
+            grid-column: span 3;
+            aspect-ratio: 16 / 9;
+          }
+        }
+
         @media (max-width: 760px) {
-          .site-shell { padding: 0 8px 14px; }
-          .glass-nav { width: calc(100vw - 20px); height: 52px; padding-left: 10px; }
+          .about-illustration {
+            display: none;
+          }
+
+          .footer-illustration-badge {
+            width: 74px;
+            left: auto;
+            right: 18px;
+            top: -34px;
+          }
+
+          .footer-illustration {
+            width: 88%;
+            height: 88%;
+          }
+          .site-shell { padding: 0 8px 96px; }
+          .glass-nav {
+            top: auto;
+            bottom: 16px;
+            width: calc(100vw - 20px);
+            height: 52px;
+            padding-left: 10px;
+          }
           .nav-links { gap: 0; }
           .nav-links a { font-size: 11px; padding: 9px 8px; }
           .nav-logo { width: 34px; height: 34px; font-size: 12px; }
 
-          .hero { min-height: 100vh; max-width: 100%; padding-top: 78px; }
+          .hero {
+            min-height: 100svh;
+            max-width: 100%;
+            padding-top: 22vh;
+            justify-content: flex-start;
+            transform: none;
+            padding-bottom: 40px;
+          }
           .first-name {
             margin-left: 0;
             margin-bottom: 4px;
@@ -822,8 +1177,8 @@ export default function Portfolio() {
             grid-template-columns: 1fr;
             width: 100%;
             max-width: 100%;
-            gap: 28px;
-            margin-top: 18px;
+            gap: 46px;
+            margin-top: 56px;
           }
 
           .about {
@@ -837,7 +1192,7 @@ export default function Portfolio() {
           }
           .photo-placeholder { margin-bottom: 24px; width: 126px; height: auto; aspect-ratio: 1 / 1.08; border-radius: 12px; }
           .about h1 { font-size: 25px; align-self: auto; }
-          .about p { font-size: 11px; max-width: 420px; }
+          .about p { font-size: 14px; line-height: 1.36; max-width: 420px; margin-bottom: 22px; }
 
           .experience { border-radius: 14px; padding: 22px 20px; min-height: auto; }
           .experience h2 { font-size: 34px; text-align: left; margin-bottom: 22px; }
@@ -850,18 +1205,30 @@ export default function Portfolio() {
           .portfolio-grid {
             width: 100%;
             max-width: 100%;
-            margin-top: 38px;
+            margin-top: 64px;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 20px;
           }
           .tile,
           .tile-small,
           .tile-wide,
           .tile-third,
           .tile-half,
-          .tile-third.tall { grid-column: span 1; height: 180px; }
-          .video-tile { grid-column: span 1; aspect-ratio: 9 / 16; height: auto; }
-          .tile-wide, .tile-half { grid-column: span 1; height: 180px; }
+          .tile-third.tall { grid-column: span 1; height: auto; }
+          .video-tile {
+            grid-column: span 1;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            height: auto;
+          }
+          .video-wide,
+          .video-wide:first-child {
+            grid-column: span 1;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
+          }
+          .project-preview { object-fit: contain; background: #111; }
           .project-hover { padding: 18px; }
           .hover-copy { max-width: 92%; }
           .hover-name { font-size: 24px; }
@@ -871,7 +1238,7 @@ export default function Portfolio() {
           .modal-close { top: 14px; right: 14px; }
 
           .footer {
-            margin-top: 34px;
+            margin-top: 72px;
             grid-template-columns: 1fr;
             gap: 18px;
             align-items: stretch;
@@ -879,9 +1246,13 @@ export default function Portfolio() {
             width: 100%;
           }
           .footer-right { align-items: flex-start; text-align: left; }
-          .footer-right p { max-width: 310px; font-size: 10px; text-align: left; }
+          .footer-right p { max-width: 340px; font-size: 13px; line-height: 1.34; text-align: left; }
           .footer-left a { font-size: 24px; }
-          .footer button { font-size: 11px; padding: 10px 26px; }
+          .footer-button {
+            font-size: 11px;
+            padding: 10px 26px;
+            margin-bottom: 18px;
+          }
         }
       `}</style>
     </main>

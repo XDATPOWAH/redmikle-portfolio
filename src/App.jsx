@@ -514,7 +514,7 @@ export default function Portfolio() {
           background: var(--bg);
           color: var(--text);
           font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, Arial, sans-serif;
-          padding: 0 16px 18px;
+          padding: 0 clamp(18px, 2.2vw, 32px) 18px;
           scroll-padding-top: 96px;
         }
 
@@ -680,7 +680,7 @@ export default function Portfolio() {
 
         .bio-exp {
           position: relative;
-          width: min(90vw, 1100px);
+          width: min(calc(100vw - clamp(36px, 5vw, 64px)), 1100px);
           max-width: none;
           margin: 90px auto 0;
           display: grid;
@@ -833,7 +833,7 @@ export default function Portfolio() {
         }
 
         .portfolio-grid {
-          width: min(90vw, 1180px);
+          width: min(calc(100vw - clamp(36px, 5vw, 64px)), 1180px);
           max-width: none;
           margin: 120px auto 0;
           display: grid;
@@ -967,7 +967,7 @@ export default function Portfolio() {
         .video-modal {
           position: fixed;
           inset: 0;
-          z-index: 100;
+          z-index: 1000;
           display: grid;
           place-items: center;
           padding: 24px;
@@ -996,7 +996,7 @@ export default function Portfolio() {
           position: fixed;
           top: 22px;
           right: 24px;
-          z-index: 101;
+          z-index: 1001;
           width: 44px;
           height: 44px;
           border: 0;
@@ -1012,7 +1012,7 @@ export default function Portfolio() {
         .footer {
           position: relative;
           overflow: visible;
-          width: min(90vw, 1100px);
+          width: min(calc(100vw - clamp(36px, 5vw, 64px)), 1100px);
           max-width: none;
           margin: 110px auto 0;
           min-height: 220px;
@@ -1134,7 +1134,7 @@ export default function Portfolio() {
             width: 88%;
             height: 88%;
           }
-          .site-shell { padding: 0 8px 96px; }
+          .site-shell { padding: 0 16px 96px; }
           .glass-nav {
             top: 16px;
             bottom: auto;
@@ -1179,7 +1179,7 @@ export default function Portfolio() {
 
           .bio-exp {
             grid-template-columns: 1fr;
-            width: 100%;
+            width: calc(100% - 8px);
             max-width: 100%;
             gap: 46px;
             margin-top: 56px;
@@ -1207,9 +1207,9 @@ export default function Portfolio() {
           .dot { left: -25.5px; width: 11px; height: 11px; }
 
           .portfolio-grid {
-            width: 100%;
+            width: calc(100% - 20px);
             max-width: 100%;
-            margin-top: 64px;
+            margin: 64px auto 0;
             grid-template-columns: 1fr;
             gap: 20px;
           }
@@ -1238,16 +1238,22 @@ export default function Portfolio() {
           .hover-name { font-size: 24px; }
           .hover-copy p { font-size: 11px; max-width: 260px; }
           .watch-button { font-size: 10px; padding: 9px 15px; }
-          .modal-video-wrap { width: min(94vw, 520px); border-radius: 18px; }
-          .modal-close { top: 14px; right: 14px; }
+          .modal-video-wrap { width: min(92vw, 520px); border-radius: 18px; }
+          .modal-close {
+            top: 18px;
+            right: 18px;
+            width: 46px;
+            height: 46px;
+            background: rgba(255,255,255,.18);
+          }
 
           .footer {
             margin-top: 72px;
             grid-template-columns: 1fr;
             gap: 18px;
             align-items: stretch;
-            padding: 20px 18px 18px;
-            width: 100%;
+            padding: 20px 20px 22px;
+            width: calc(100% - 8px);
           }
           .footer-right { align-items: flex-start; text-align: left; }
           .footer-right p { max-width: 340px; font-size: 13px; line-height: 1.34; text-align: left; }

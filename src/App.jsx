@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
 export default function Portfolio() {
+  useEffect(() => {
+    document.title = 'Redmikle'
+  }, [])
   const [activeVideo, setActiveVideo] = useState(null)
   const avatarVideoRef = useRef(null)
 
@@ -1019,16 +1022,16 @@ export default function Portfolio() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           align-items: end;
-          padding: 42px 42px 38px;
+          padding: 72px 42px 38px;
           gap: 26px;
         }
 
         .footer-illustration-badge {
           position: absolute;
-          width: clamp(82px, 8vw, 112px);
+          width: 88px;
           aspect-ratio: 1 / 1;
           left: 34px;
-          top: -48px;
+          top: -36px;
           z-index: 3;
           border-radius: 50%;
           background: var(--orange);
@@ -1048,6 +1051,7 @@ export default function Portfolio() {
         .footer-left span {
           display: block;
           font-size: 15px;
+          margin-top: 8px;
           margin-bottom: 22px;
           font-weight: 700;
           text-transform: uppercase;
@@ -1132,8 +1136,8 @@ export default function Portfolio() {
           }
           .site-shell { padding: 0 8px 96px; }
           .glass-nav {
-            top: auto;
-            bottom: 16px;
+            top: 16px;
+            bottom: auto;
             width: calc(100vw - 20px);
             height: 52px;
             padding-left: 10px;

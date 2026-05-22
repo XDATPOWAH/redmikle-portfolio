@@ -1,39 +1,73 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+
+const optimizeImage = (url, width = 600) => url.replace('/image/upload/', `/image/upload/f_webp,q_auto,w_${width}/`)
+const optimizePreview = (url) => url.replace('/video/upload/', '/video/upload/q_auto:eco,w_720/')
+const getYouTubeId = (url) => {
+  const match = url.match(/(?:youtu\.be\/|v=|embed\/)([^?&/]+)/)
+  return match?.[1] || ''
+}
+const getYouTubeEmbed = (url) => `https://www.youtube.com/embed/${getYouTubeId(url)}?autoplay=1&rel=0&modestbranding=1`
+const getYouTubeThumb = (url) => `https://img.youtube.com/vi/${getYouTubeId(url)}/maxresdefault.jpg`
 
 export default function Portfolio() {
+  const [activeVideo, setActiveVideo] = useState(null)
+
   useEffect(() => {
     document.title = 'Redmikle'
+
+    const description = 'Redmikle — video editing, post production and motion design portfolio by Mykhailo Razumnyi.'
+    let metaDescription = document.querySelector('meta[name="description"]')
+
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta')
+      metaDescription.setAttribute('name', 'description')
+      document.head.appendChild(metaDescription)
+    }
+
+    metaDescription.setAttribute('content', description)
   }, [])
-  const [activeVideo, setActiveVideo] = useState(null)
-  const avatarVideoRef = useRef(null)
 
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === 'Escape') setActiveVideo(null)
     }
 
-    const forceAutoplay = () => {
-      const autoplayVideos = document.querySelectorAll('video[data-autoplay="true"]')
+    const playVideo = (video) => {
+      video.muted = true
+      video.defaultMuted = true
+      video.playsInline = true
 
-      autoplayVideos.forEach((video) => {
-        video.muted = true
-        video.defaultMuted = true
-        video.playsInline = true
-
-        const playPromise = video.play()
-        if (playPromise?.catch) playPromise.catch(() => {})
-      })
+      const playPromise = video.play()
+      if (playPromise?.catch) playPromise.catch(() => {})
     }
 
-    forceAutoplay()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target
+
+          if (entry.isIntersecting) {
+            playVideo(video)
+          } else {
+            video.pause()
+          }
+        })
+      },
+      { rootMargin: '240px 0px', threshold: 0.05 }
+    )
+
+    const observeVideos = () => {
+      document.querySelectorAll('video[data-autoplay="true"]').forEach((video) => observer.observe(video))
+    }
+
+    observeVideos()
     window.addEventListener('keydown', onKeyDown)
-    window.addEventListener('touchstart', forceAutoplay, { once: true })
-    window.addEventListener('scroll', forceAutoplay, { once: true })
+    window.addEventListener('touchstart', observeVideos, { once: true })
 
     return () => {
       window.removeEventListener('keydown', onKeyDown)
-      window.removeEventListener('touchstart', forceAutoplay)
-      window.removeEventListener('scroll', forceAutoplay)
+      window.removeEventListener('touchstart', observeVideos)
+      observer.disconnect()
     }
   }, [])
   const works = [
@@ -171,6 +205,15 @@ export default function Portfolio() {
       fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779099013/B1_46_1_s1ndnh.mp4',
     },
     {
+      className: 'tile video-tile video-wide',
+      tone: 'dark',
+      name: 'esports Navi',
+      description: 'Natus Vincere youtube',
+      previewImage: getYouTubeThumb('https://youtu.be/B60HUY_nGh0?is=TeCCRKRRoxczzwO1'),
+      fullVideo: getYouTubeEmbed('https://youtu.be/B60HUY_nGh0?is=TeCCRKRRoxczzwO1'),
+      isYouTube: true,
+    },
+    {
       className: 'tile video-tile',
       tone: 'dark2',
       name: 'Home Improvement',
@@ -193,6 +236,15 @@ export default function Portfolio() {
       description: 'Knife promo',
       preview: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102147/3_mjas06.mp4',
       fullVideo: 'https://res.cloudinary.com/dxmdvizdo/video/upload/v1779102147/3_mjas06.mp4',
+    },
+    {
+      className: 'tile video-tile video-wide',
+      tone: 'mid',
+      name: 'Argentina hunting',
+      description: 'Traveling around Argentina pigeon hunting places',
+      previewImage: getYouTubeThumb('https://youtu.be/uKfzPLKKI5c?is=alfNyrMVueRWjwK_'),
+      fullVideo: getYouTubeEmbed('https://youtu.be/uKfzPLKKI5c?is=alfNyrMVueRWjwK_'),
+      isYouTube: true,
     },
     {
       className: 'tile video-tile',
@@ -309,8 +361,10 @@ export default function Portfolio() {
       <nav className="glass-nav">
         <a href="#hero" className="nav-logo">
           <img
-            src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png"
+            src={optimizeImage('https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png', 96)}
             alt="MR avatar"
+            loading="eager"
+            decoding="async"
           />
         </a>
         <div className="nav-links">
@@ -327,7 +381,6 @@ export default function Portfolio() {
         </div>
 
         <video
-          ref={avatarVideoRef}
           className="avatar avatar-video avatar-video-desktop"
           src="https://res.cloudinary.com/dwcnbqox0/video/upload/v1779145544/0519_fgd255.webm"
           autoPlay
@@ -335,7 +388,7 @@ export default function Portfolio() {
           defaultMuted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           data-autoplay="true"
           onLoadedData={(event) => event.currentTarget.play().catch(() => {})}
           onCanPlay={(event) => event.currentTarget.play().catch(() => {})}
@@ -343,8 +396,10 @@ export default function Portfolio() {
 
         <img
           className="avatar avatar-gif-mobile"
-          src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png"
+          src={optimizeImage('https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050970/avatar_iej7an.png', 520)}
           alt="Mykhailo Razumnyi avatar"
+          loading="eager"
+          decoding="async"
         />
 
         <p className="subtitle">Video editing / Post production /<br />Motion Design</p>
@@ -352,9 +407,9 @@ export default function Portfolio() {
 
       <section id="about" className="bio-exp">
         <article className="about reveal delay-1">
-          <img className="paperclip-img" src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050984/Group_37_epwbda.png" alt="pin" />
+          <img className="paperclip-img" src={optimizeImage('https://res.cloudinary.com/dwcnbqox0/image/upload/v1779050984/Group_37_epwbda.png', 120)} alt="pin" loading="lazy" decoding="async" />
           <div className="photo-placeholder">
-            <img src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779142149/PHOTO_DONE_oiojbq.jpg" alt="Mykhailo Razumnyi" />
+            <img src={optimizeImage('https://res.cloudinary.com/dwcnbqox0/image/upload/v1779142149/PHOTO_DONE_oiojbq.jpg', 540)} alt="Mykhailo Razumnyi" loading="lazy" decoding="async" />
           </div>
 
           <h1>Mykhailo Razumnyi</h1>
@@ -382,8 +437,10 @@ export default function Portfolio() {
 
           <img
             className="about-illustration"
-            src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779230823/Gemini_Generated_Image_ikouq1ikouq1ikou_1_b7fcz8.png"
+            src={optimizeImage('https://res.cloudinary.com/dwcnbqox0/image/upload/v1779230823/Gemini_Generated_Image_ikouq1ikouq1ikou_1_b7fcz8.png', 780)}
             alt="3D motion design illustration"
+            loading="lazy"
+            decoding="async"
           />
         </article>
 
@@ -410,7 +467,7 @@ export default function Portfolio() {
         {works.map((work, index) => (
           <article
             key={index}
-            className={`${work.className} ${work.tone} ${work.preview ? 'has-video' : ''}`}
+            className={`${work.className} ${work.tone} ${work.preview || work.previewImage ? 'has-video' : ''}`}
             tabIndex="0"
             onClick={() => work.fullVideo && setActiveVideo(work)}
             onKeyDown={(event) => {
@@ -423,16 +480,26 @@ export default function Portfolio() {
             {work.preview && (
               <video
                 className="project-preview"
-                src={work.preview}
+                src={optimizePreview(work.preview)}
                 autoPlay
                 muted
                 defaultMuted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 data-autoplay="true"
                 onLoadedData={(event) => event.currentTarget.play().catch(() => {})}
                 onCanPlay={(event) => event.currentTarget.play().catch(() => {})}
+              />
+            )}
+
+            {work.previewImage && (
+              <img
+                className="project-preview"
+                src={work.previewImage}
+                alt={work.name}
+                loading="lazy"
+                decoding="async"
               />
             )}
 
@@ -462,8 +529,10 @@ export default function Portfolio() {
         <div className="footer-illustration-badge">
           <img
             className="footer-illustration"
-            src="https://res.cloudinary.com/dwcnbqox0/image/upload/v1779230807/Gemini_Generated_Image_6hz3ge6hz3ge6hz3_1_2_kri5rg.png"
+            src={optimizeImage('https://res.cloudinary.com/dwcnbqox0/image/upload/v1779230807/Gemini_Generated_Image_6hz3ge6hz3ge6hz3_1_2_kri5rg.png', 180)}
             alt="3D avatar illustration"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="footer-left">
@@ -484,7 +553,17 @@ export default function Portfolio() {
         <div className="video-modal" role="dialog" aria-modal="true" onClick={() => setActiveVideo(null)}>
           <button className="modal-close" onClick={() => setActiveVideo(null)} aria-label="Close video">×</button>
           <div className="modal-video-wrap" onClick={(event) => event.stopPropagation()}>
-            <video src={activeVideo.fullVideo} controls autoPlay playsInline className="modal-video" />
+            {activeVideo.isYouTube ? (
+              <iframe
+                className="modal-video"
+                src={activeVideo.fullVideo}
+                title={activeVideo.name}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video src={activeVideo.fullVideo} controls autoPlay playsInline preload="metadata" className="modal-video" />
+            )}
           </div>
         </div>
       )}
@@ -895,6 +974,7 @@ export default function Portfolio() {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          border: 0;
         }
 
         .has-video::after {

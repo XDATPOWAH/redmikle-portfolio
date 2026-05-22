@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const optimizeImage = (url, width = 600) => url.replace('/image/upload/', `/image/upload/f_webp,q_auto,w_${width}/`)
-const optimizePreview = (url, isWide = false) => {
-  const crop = isWide ? 'c_fill,ar_16:9,g_auto' : 'c_fill,ar_9:16,g_auto'
-  return url.replace('/video/upload/', `/video/upload/q_auto:eco,w_720,${crop}/`)
-}
+const optimizePreview = (url) => url.replace('/video/upload/', '/video/upload/q_auto:eco,w_720/')
 const getYouTubeId = (url) => {
   const match = url.match(/(?:youtu\.be\/|v=|embed\/)([^?&/]+)/)
   return match?.[1] || ''
@@ -483,7 +480,7 @@ export default function Portfolio() {
             {work.preview && (
               <video
                 className="project-preview"
-                src={optimizePreview(work.preview, work.className.includes('video-wide'))}
+                src={optimizePreview(work.preview)}
                 autoPlay
                 muted
                 defaultMuted
@@ -1315,7 +1312,7 @@ export default function Portfolio() {
             aspect-ratio: 16 / 9;
             height: auto;
           }
-          .project-preview { object-fit: cover; background: #111; }
+          .project-preview { object-fit: contain; background: #111; }
           .project-hover { padding: 18px; }
           .hover-copy { max-width: 92%; }
           .hover-name { font-size: 24px; }
